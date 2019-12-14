@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Handler.dhamarmj.pucmm.edu/" targetNamespace="http://Handler.dhamarmj.pucmm.edu/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="getUrl" type="tns:getUrl" />
+  <xs:element name="getUrlResponse" type="tns:getUrlResponse" />
+  <xs:element name="helloWorld" type="tns:helloWorld" />
+  <xs:element name="helloWorldResponse" type="tns:helloWorldResponse" />
+  <xs:complexType name="getUrl">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUrlResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:urlSoap" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="urlSoap">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="redirect" type="xs:string" />
+      <xs:element minOccurs="0" name="url" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="helloWorld">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="helloWorldResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

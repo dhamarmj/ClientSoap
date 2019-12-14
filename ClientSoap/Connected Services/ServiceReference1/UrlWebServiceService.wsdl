@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://Handler.dhamarmj.pucmm.edu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="UrlWebServiceService" targetNamespace="http://Handler.dhamarmj.pucmm.edu/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:7777/ws?xsd=1" namespace="http://Handler.dhamarmj.pucmm.edu/" />
+    </xsd:schema>
+  </types>
+  <message name="getUrl">
+    <part name="parameters" element="tns:getUrl" />
+  </message>
+  <message name="getUrlResponse">
+    <part name="parameters" element="tns:getUrlResponse" />
+  </message>
+  <message name="helloWorld">
+    <part name="parameters" element="tns:helloWorld" />
+  </message>
+  <message name="helloWorldResponse">
+    <part name="parameters" element="tns:helloWorldResponse" />
+  </message>
+  <portType name="UrlWebService">
+    <operation name="getUrl">
+      <input wsam:Action="http://Handler.dhamarmj.pucmm.edu/UrlWebService/getUrlRequest" message="tns:getUrl" />
+      <output wsam:Action="http://Handler.dhamarmj.pucmm.edu/UrlWebService/getUrlResponse" message="tns:getUrlResponse" />
+    </operation>
+    <operation name="helloWorld">
+      <input wsam:Action="http://Handler.dhamarmj.pucmm.edu/UrlWebService/helloWorldRequest" message="tns:helloWorld" />
+      <output wsam:Action="http://Handler.dhamarmj.pucmm.edu/UrlWebService/helloWorldResponse" message="tns:helloWorldResponse" />
+    </operation>
+  </portType>
+  <binding name="UrlWebServicePortBinding" type="tns:UrlWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getUrl">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="helloWorld">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="UrlWebServiceService">
+    <port name="UrlWebServicePort" binding="tns:UrlWebServicePortBinding">
+      <soap:address location="http://localhost:7777/ws" />
+    </port>
+  </service>
+</definitions>
